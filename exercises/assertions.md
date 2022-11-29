@@ -11,3 +11,21 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+
+1. **Assertion fails**
+   
+    En Java les nombres flottants utilisent des binaires et non des fractions décimales. 
+    Ainsi cette assertion `assertTrue(3 * .4 == 1.2)` est tout le temps fausse puisque la multiplication s'effectue sur le binaire de `0.4` qui n'est pas précis et donne une valeur approchée du résultat.
+
+2. **Différence entre `assertEquals` et `assertSame`**
+   
+   `assertEquals` : assertion qui vérifie si les deux objets sont égaux
+
+   `assertSame` : asserttion qui vérifie si les deux références aux objets sont égaux
+   
+```java
+
+
+```
+   
+   Show scenarios where they produce the same result and scenarios where they do not produce the same result.
