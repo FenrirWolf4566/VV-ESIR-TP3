@@ -19,13 +19,40 @@ Answer the following questions:
 
 2. **Différence entre `assertEquals` et `assertSame`**
    
-   `assertEquals` : assertion qui vérifie si les deux objets sont égaux
+   `assertEquals` : assertion qui vérifie si les deux objets sont égaux (comparaison par identité "equals")
 
-   `assertSame` : asserttion qui vérifie si les deux références aux objets sont égaux
+```java
+    void testAssertEquals() {
+        // Les deux objets sont égaux
+        int a=1;
+        int b=1;
+        int c=a;
+        assertEquals(a,b); // True
+        assertEquals(a,c); // True
+
+        // Les deux objets sont égaux
+        int a=1;
+        int d=9;
+        assertEquals(a,d); // False
+    }
+```
+
+   `assertSame` : assertion qui vérifie si les deux références aux objets sont égaux (comparaison par valeurs "==")
    
 ```java
+    void testAssertSame() {
+        // Les deux objets sont égaux
+        int a=1;
+        int b=1;
+        int c=a;
+        assertEquals(a,b); // True
+        assertEquals(a,c); // True
 
-
+        // Les deux objets sont égaux
+        int a=1;
+        int d=9;
+        assertEquals(a,d); // False
+    }
 ```
    
    Show scenarios where they produce the same result and scenarios where they do not produce the same result.
