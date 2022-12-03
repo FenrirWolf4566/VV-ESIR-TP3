@@ -19,40 +19,36 @@ Answer the following questions:
 
 2. **Différence entre `assertEquals` et `assertSame`**
    
+```java
+        String a = "La V&V c'est chouette !";
+        String b = "La V&V c'est chouette !";
+        String c =  new String("La V&V c'est chouette !";);
+```
+---
+
    `assertEquals` : assertion qui vérifie si les deux objets sont égaux (comparaison par identité "equals")
 
-```java
+ ```java
+    @Test
     void testAssertEquals() {
-        // Les deux objets sont égaux
-        int a=1;
-        int b=1;
-        int c=a;
         assertEquals(a,b); // True
         assertEquals(a,c); // True
-
-        // Les deux objets sont égaux
-        int a=1;
-        int d=9;
-        assertEquals(a,d); // False
     }
 ```
+Les deux cas sont vraies puisque `a,b,c` contiennent la même chaine de caractère.
+
+---
 
    `assertSame` : assertion qui vérifie si les deux références aux objets sont égaux (comparaison par valeurs "==")
-   
-```java
-    void testAssertSame() {
-        // Les deux objets sont égaux
-        int a=1;
-        int b=1;
-        int c=a;
-        assertEquals(a,b); // True
-        assertEquals(a,c); // True
 
-        // Les deux objets sont égaux
-        int a=1;
-        int d=9;
-        assertEquals(a,d); // False
+```java
+    @Test
+    void testAssertSame() {
+        assertSame(a,b); // True
+        assertSame(a,c); // False
     }
 ```
-   
-   Show scenarios where they produce the same result and scenarios where they do not produce the same result.
+Le premier cas est vraie puisque `a` et `b` ont la même réference mémoire.
+
+Le second est faux puisque 
+
