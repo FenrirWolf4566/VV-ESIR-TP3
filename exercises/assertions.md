@@ -50,5 +50,5 @@ Les deux cas sont vraies puisque `a,b,c` contiennent la même chaine de caractè
 ```
 Le premier cas est vraie puisque `a` et `b` ont la même réference mémoire.
 
-Le second est faux puisque 
+Le second est faux puisque en faisant un `new` Java crée une nouvelle référence mémoire différente de celle de `a`.
 
