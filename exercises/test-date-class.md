@@ -53,3 +53,33 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
+### Test coverage
+Test coverage with JUnit of the class Date : 100%
+
+### Predicates
+- leapYear : couvert avec le test des dates, avec les chiffres modulo 4, 100 et 400
+- lastDayOfMonth : couvert avec les tests de tous les mois
+- previousDate et nextDate : couvert avec les cas de fin et début de mois
+- compareTo : couvert avec les cas de fin et début de mois
+- validDate : couvert avec les nombres < 1 ou > nombre de mois ou nombre de jours
+
+### Mutations
+Generated 72 mutations Killed 67 (93%)
+
+Il y a donc des parties de code qui ne sont pas couvertes par des tests, car les mutants sont restés en vie.
+- le equals n'est pas testé
+- la condition du mois > 12 lors du `nextDate` survit
+
+Ces problèmes ont été résolu en ajoutant quelques tests equals, et en ajoutant une date comme le 31 novembre, et exécuter `nextDate()`.
+
+Pour le `compareTo`, des mutations survivent, mais je ne nous ne comprenons pas pourquoi. Tous les elseif se retrouvent en rouge, alors qu'ils sont explicitement testés.
+```
+if(year == other.year){
+    ...
+}else if(year < other.year)
+    return -1;
+return 1;
+```
+Dans le cas suivant : `01/01/00` et `01/01/01` passent dans ce cas de test. Une mutation est sensé être capturé.
+
+Final mutation score : 96%
