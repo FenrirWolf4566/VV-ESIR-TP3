@@ -100,6 +100,8 @@ public static boolean isBalanced(String str) {
 
 Avec ces 4 tests, on peut couvrir toutes les lignes.
 
+Si je lance le test de coverage de la class StringUtils avec les tests, alors j'ai 100% de coverage
+
 ### Check bools
 
 1. `opposite.containsKey(c)`\
