@@ -17,7 +17,39 @@ class BinaryHeap<T> {
     }
 
     public T pop() {
-        return null; // TODO
+        // Replace the root of the heap with the last element on the last level.
+        T e = peek();
+
+        T last = array.remove(array.size()-1);
+
+        if(array.size() == 0)
+            return e;
+
+        array.set(0, last);
+
+        int index = 0;
+        while(true){
+            int left = getChildLeftIndex(index);
+            int right = getChildRightIndex(index);
+
+            int min = index;
+
+            // Compare the new root with its children; if they are in the correct order, stop.
+            if(left < array.size() && comparator.compare(array.get(left), array.get(min)) < 0)
+                min = left;
+            if(right < array.size() && comparator.compare(array.get(right), array.get(min)) < 0)
+                min = right;
+
+            // If not, swap the element with one of its children and return to the previous step.
+            // (Swap with its smaller child in a min-heap and its larger child in a max-heap.)
+            if(min != index){
+                swap(index, min);
+                index = min;
+            }else{
+                break;
+            }
+        }
+        return e;
     }
 
     public T peek() {
@@ -27,7 +59,17 @@ class BinaryHeap<T> {
     }
 
     public void push(T element) {
-        //TODO
+        // Add at the bottom
+        array.add(element);
+        int index = array.size()-1;
+        int parent = getParentIndex(index);
+        // Compare added with parent, if they are in the correct order, stop.
+        while(comparator.compare(array.get(index), array.get(parent)) < 0) {
+            // If not, swap the element with its parent and return to the previous step.
+            swap(parent, index);
+            index = parent;
+            parent = getParentIndex(index);
+        }
     }
 
     private void swap(int a, int b){
