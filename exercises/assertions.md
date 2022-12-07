@@ -35,7 +35,7 @@ Answer the following questions:
         assertEquals(a,c); // True
     }
 ```
-Les deux cas sont vraies puisque `a,b,c` contiennent la même chaine de caractère.
+Les deux cas sont vrais puisque `a,b,c` contiennent la même chaine de caractère.
 
 ---
 
@@ -48,7 +48,7 @@ Les deux cas sont vraies puisque `a,b,c` contiennent la même chaine de caractè
         assertSame(a,c); // False
     }
 ```
-Le premier cas est vraie puisque `a` et `b` ont la même réference mémoire.
+Le premier cas est vraie car `a` et `b` ont la même référence mémoire.
 
-Le second est faux puisque en faisant un `new` Java crée une nouvelle référence mémoire différente de celle de `a`.
+Le second est faux puisqu'en faisant un `new` Java crée une nouvelle référence mémoire différente de celle de `a`.
 

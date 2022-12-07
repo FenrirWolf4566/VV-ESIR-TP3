@@ -70,9 +70,9 @@ Il y a donc des parties de code qui ne sont pas couvertes par des tests, car les
 - le equals n'est pas testé
 - la condition du mois > 12 lors du `nextDate` survit
 
-Ces problèmes ont été résolu en ajoutant quelques tests equals, et en ajoutant une date comme le 31 novembre, et exécuter `nextDate()`.
+Ces problèmes ont été résolus en ajoutant quelques tests equals, et en ajoutant une date comme le 31 novembre, et exécuter `nextDate()`.
 
-Pour le `compareTo`, des mutations survivent, mais je ne nous ne comprenons pas pourquoi. Tous les elseif se retrouvent en rouge, alors qu'ils sont explicitement testés.
+Pour le `compareTo`, des mutations survivent, mais nous ne comprenons pas pourquoi. Tous les elseif se retrouvent en rouge, alors qu'ils sont explicitement testés.
 ```
 if(year == other.year){
     ...
@@ -80,6 +80,6 @@ if(year == other.year){
     return -1;
 return 1;
 ```
-Dans le cas suivant : `01/01/00` et `01/01/01` passent dans ce cas de test. Une mutation est sensé être capturé.
+Dans le cas suivant : `01/01/00` et `01/01/01` passent dans ce cas de test. Une mutation est censé être capturé.
 
 Final mutation score : 96%
