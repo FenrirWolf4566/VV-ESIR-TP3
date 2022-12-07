@@ -17,35 +17,17 @@ class BinaryHeap<T> {
     }
 
     public T pop() {
-        int index = getMinElementIndex();
-
-        swap(0, index);
         return null; // TODO
     }
 
-    public T peek() { return array.get(getMinElementIndex()); }
-
-    private int getMinElementIndex(){
-        if(array.isEmpty())
+    public T peek() {
+        if(count() == 0)
             throw new NoSuchElementException();
-        int index = 0;
-        while(getChild1Index(index) < array.size())
-            index = getChild1Index(index);
-        return index;
+        return array.get(0);
     }
 
     public void push(T element) {
-        array.add(element);
-
-        int child = array.size()-1;
-        int parent = getParentIndex(child);
-
-        while(comparator.compare(array.get(parent), array.get(child)) < 0){
-            swap(parent, child);
-
-            child = parent;
-            parent = getParentIndex(child);
-        }
+        //TODO
     }
 
     private void swap(int a, int b){
@@ -56,10 +38,10 @@ class BinaryHeap<T> {
 
     public int count() { return array.size(); }
 
-    private static int getChild1Index(int i){
+    private static int getChildLeftIndex(int i){
         return 2*i+1;
     }
-    private static int getChild2Index(int i){
+    private static int getChildRightIndex(int i){
         return 2*i+2;
     }
     private static int getParentIndex(int i){
