@@ -39,4 +39,37 @@ Use the following steps to design the test suite:
 
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
-## Answer
+# Answer
+## Input space
+Pour couvrir tous les input possible, 3 cas de test :
+- Ajouter des chiffres dans l'ordre croissant
+- Ajouter des chiffres dans l'ordre décroissant
+- Ajouter des chiffres aléatoires
+
+Pour chaque cas, on le répète entre 1 et n nombres
+
+## Coverage
+Le test coverage est de 100%
+
+## Predicate
+Il n'y a pas de conditions avec plus de 2 booléens
+
+## PIT test
+```
+================================================================================
+- Statistics
+================================================================================
+>> Generated 30 mutations Killed 28 (93%)
+>> Ran 34 tests (1.13 tests per mutation)
+```
+Le coverage est de 93%. Des warnings de TIMED_OUT apparaissent, car si une condition est toujours vraie, alors les boucles de l'algorithme devient infinie et ne peut se terminer.
+
+Les 2 mutant qui survivent vienne de ces conditions :
+```
+if(left < array.size() && comparator.compare(array.get(left), array.get(min)) < 0)
+    min = left;
+if(right < array.size() && comparator.compare(array.get(right), array.get(min)) < 0)
+    min = right;
+```
+
+Ces conditions sevent à déterminer le minimum. Effectivement, que cette condition soit `<` ou `<=`, cela ne change rien. Que l'on garde le nouvel ou l'ancien élément, le résultat est le même. Les tests ne relèvent donc pas ce problème, car dans la description du problème, il n'est pas mentionné de garder l'ordre d'insertion si les valeurs sont égales. Les conditions de boundary à gauche est forcément vraie, car le changer en `<=` causerait une erreur avec le `array.get()`.
